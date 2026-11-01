@@ -19,11 +19,10 @@ Keep the same folder structure. Every asset path in the app is relative. No npm,
 ## Create the separate GitHub repository and push
 
 1. On GitHub, create a **public**, empty repository named `motor-sound-app` under your account. Do not initialize it with a README, license, or `.gitignore`; those files are already in this local repository. A public repository works with GitHub Pages on GitHub Free.
-2. In PowerShell, enter this folder and push the prepared `main` branch:
+2. In PowerShell, enter this folder and push the prepared `main` branch. Its `origin` remote is already configured for `hussainali-saiyed/motor-sound-app`:
 
    ```powershell
    cd "C:\Users\HUSSAIN ALI SAIYED\Portfolio\motor-sound-app"
-   git remote add origin https://github.com/hussainali-saiyed/motor-sound-app.git
    git push -u origin main
    ```
 
