@@ -9,12 +9,15 @@ A buildless iPhone Home Screen web app that uses GPS speed to drive synthesized 
 | `index.html` | The app, including all CSS and JavaScript | Yes |
 | `manifest.json` | Home Screen app metadata | Yes |
 | `icon.png` | Home Screen icon | Yes |
-| `audio/bmw_exhaust.mp3` | Built-in BMW exhaust sound | Yes |
+| `audio/bmw_exhaust.mp3` | Original BMW MP3 copy; audio is also embedded in `index.html` | Keep it in Git |
 | `.nojekyll` | Serves the folder as a plain static site on GitHub Pages | Include it |
 | `README.md` | Setup and testing instructions | No, but keep in Git |
 | `backups/motor-sound-v1.html` | Original version before the loop library | No, but keep in Git for rollback |
+| `backups/motor-sound-before-local-fix.html` | Version before local BMW playback was fixed | No, but keep in Git for rollback |
 
 Keep the same folder structure. Every asset path in the app is relative. No npm, build step, or audio library is needed.
+
+The BMW MP3 is embedded in `index.html`, so Test mode works when that HTML file is opened directly. The separate MP3 is kept as an editable source copy. If you replace the MP3, update the embedded audio in `index.html` too. GPS and Home Screen installation still require hosting over HTTPS.
 
 ## Create the separate GitHub repository and push
 
@@ -39,4 +42,4 @@ Only the `git push` step sends the committed files to GitHub. Publishing with Pa
 - Tap **Start GPS**, allow location access, and check speed and RPM during a safe drive. Keep the app visible in the foreground.
 - If adding your own MP3 or WAV, upload from the Home Screen app. It is saved locally on that iPhone and is not added to the GitHub repository.
 
-The original app can be restored by copying `backups/motor-sound-v1.html` over `index.html` and committing that change. This standalone app has no service worker, so offline startup is not guaranteed.
+An earlier app can be restored by copying either file in `backups/` over `index.html` and committing that change. This standalone app has no service worker, so offline startup is not guaranteed.
